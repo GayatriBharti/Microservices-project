@@ -1,0 +1,51 @@
+server:
+  port: 0
+
+spring:
+  application:
+   name: admin-service 
+  
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${random.value} 
+    prefer-ip-address: true
+   
+  client:    
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka   
+
+pivotal:
+  loginservice:
+    name: login-service
+  adminservice:
+    name: admin-service   
+  empservice:
+    name: emp-service
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+    health:
+      show-details: "ALWAYS"
+    gateway:
+      enabled: true
+  health:
+    circuitbreakers:
+      enabled: true
+
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      NotworkingCircuiteBreaker:
+        register-health-indicator: true
+        event-consumer-buffer-size: 100
+        failure-rate-threshold: 50
+        minimum-number-of-calls: 4
+        automatic-transition-from-open-to-half-open-enabled: true
+        wait-duration-in-open-state: 6s
+        permitted-number-of-calls-in-half-open-state: 5
+
+      

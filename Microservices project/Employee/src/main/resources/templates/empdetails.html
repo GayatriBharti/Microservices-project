@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Employee Assessments Details</title>
+<style>
+span {background-color:white;}
+</style>
+</head>
+
+<body bgcolor="indianred">
+<h1>Employee Assessments Details</h1>
+<table border="1">
+<tr><th>Registration no</th><th>User Id</th><th>Assessment Name</th><th>Assessment Date</th><th>Assessment Type</th></tr>
+<tr th:each="employee: ${employee}" >
+	<td th:text="${employee.regno}"></td>
+	<td th:text="${employee.userid}"></td> 
+	<td th:text="${employee.asmntname}"></td>
+	<td th:text="${employee.date}"></td> 
+	<td th:text="${employee.asmnttype}"></td> 
+</tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title> Technical Assesment Registration Form </title>
+<style>
+Body {
+font-family: Calibri, Helvetica, sans-serif;
+background-color: pink;
+}
+button {
+background-color: #4CAF50;
+width: 100%;
+color: orange;
+padding: 15px;
+margin: 10px 0px;
+border: none;
+cursor: pointer;
+}
+form {
+border: 3px solid #f1f1f1;
+}
+input[type=number], input[type=date], select[id=asmntname] {
+width: 100%;
+margin: 8px 0;
+padding: 12px 20px;
+display: inline-block;
+border: 2px solid green;
+box-sizing: border-box;
+}
+button:hover {
+opacity: 0.7;
+}
+.cancelbtn {
+width: auto;
+padding: 10px 18px;
+margin: 10px 5px;
+}
+
+
+.container {
+padding: 25px;
+background-color: lightblue;
+}
+</style>
+</head>
+<body>
+<center> <h1> Technical Assesment Registration Form </h1> </center>
+<form action="/employee/savetech" method="POST">
+<div class="container">
+<label>User Id : </label>
+<input type="number" placeholder="Enter User Id" name="userid" required>
+<label>Assesment Date : </label>
+<input type="date" id="date" name="date" required>
+<label for="asmntname">Assesment Name : </label>
+<select name="asmntname" id="asmntname">
+<option value="Java">Java</option>
+<option value="C#">C#</option>
+<option value="Python">Python</option>
+<option value="PERL">PERL</option>
+</select>
+<button type="submit">Submit</button>
+</div>
+</form>
+</body>
+</html>
